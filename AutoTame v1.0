@@ -1,0 +1,141 @@
+////////////////
+// AutoTame v1.0
+// Written by: Zell
+//
+// This requires you to have a dagger in your backpack
+//
+// You require a tank for this
+// Create a script variable called tank
+// Make sure that tank is on follow, not guard
+// Make sure you are not wearing aspect gear
+// Make sure you are not wearing a chain
+//
+// 50-72.5 use rock guar as tank
+// 75-102.5 use scarab as tank
+// 105-120 use sand roach as tank
+//
+// The important thing here to not to use
+// a scarab as a tank when taming scarabs
+//
+////////////////
+if not listexists 'tankcount'
+  createlist 'tankcount'
+  overhead 'Please select your tanking pet'
+  setvar 'tank'
+endif
+//hotkey 'Add to ignore list' - need a better way to do this
+if not timerexists 'bandageTimer'
+  createtimer 'bandageTimer'
+  settimer 'bandageTimer' 0
+endif
+if timer 'bandageTimer' > 10000
+  dclicktype 3617 backpack
+  pause 500
+  target 'tank'
+  pause 1000
+  if insysmsg 'not damaged'
+    settimer 'bandageTimer' 4000
+  else
+    settimer 'bandageTimer' 0
+  endif
+endif
+hotkey 'Cancel current target'
+if skill 'Taming' < 60 //Frogs
+  removelist 'pets'
+  createlist 'pets'
+  pushlist 'pets' '80'
+elseif skill 'Taming' < 70 //Cave Bear
+  removelist 'pets'
+  createlist 'pets'
+  pushlist 'pets' '213'
+elseif skill 'Taming' < 75 //Scarab
+  removelist 'pets'
+  createlist 'pets'
+  pushlist 'pets' '169'
+  elseif skill 'Taming' < 80 //Aegis Minion Whelp
+  removelist 'pets'
+  createlist 'pets'
+  pushlist 'pets' '51'
+elseif skill 'Taming' < 85 //Crawler
+  removelist 'pets'
+  createlist 'pets'
+  pushlist 'pets' '315'
+elseif skill 'Taming' < 90 //Drake
+  removelist 'pets'
+  createlist 'pets'
+  pushlist 'pets' '61'
+  pushlist 'pets' '60'
+elseif skill 'Taming' < 95 //Husk Crab
+  removelist 'pets'
+  createlist 'pets'
+  pushlist 'pets' '729'
+elseif skill 'Taming' < 100 //Molten Mongbat
+  removelist 'pets'
+  createlist 'pets'
+  pushlist 'pets' '39'  
+elseif skill 'Taming' < 105 //Snow Drift
+  removelist 'pets'
+  createlist 'pets'
+  pushlist 'pets' '51'
+elseif skill 'Taming' < 110 //Earth Drake
+  removelist 'pets'
+  createlist 'pets'
+  pushlist 'pets' '60'
+  pushlist 'pets' '61'
+elseif skill 'Taming' < 115 //Aegis Minion
+  removelist 'pets'
+  createlist 'pets'
+  pushlist 'pets' '776'
+elseif skill 'Taming' < 120 //Earth Dragon
+  removelist 'pets'
+  createlist 'pets'
+  // pushlist 'pets' '12'
+  // pushlist 'pets' '59'
+  pushlist 'pets' '388' 
+else
+  overhead 'STOP! You have finished your journey'
+  replay
+endif
+clearsysmsg
+foreach pet in pets
+ dclicktype 3922 backpack
+ pause 1000
+ targettype pet true
+endfor
+if skill 'herding' > 0 //Herding adds an additional context menu option
+  menu 'last' 11
+else
+  menu 'last' 10
+endif
+pause 500
+hotkey 'Cancel current target'
+menu 'self' 19
+pause 1000
+if insysmsg 'person'
+  say 'all kill'
+  pause 1000
+  target 'last'
+else
+  foreach pet in pets
+    dclicktype 3922 backpack
+    pause 1000
+    targettype pet true
+    pause 1000
+  endfor
+  if insysmsg 'bladed item'
+    if not timerexists 'tamingTimer'
+      createtimer 'tamingTimer'
+      settimer 'tamingTimer' 0
+    endif
+    if timer 'tamingTimer' > 13000
+      useskill 'Taming'
+      pause 1000
+      foreach pet in pets
+        pause 500
+        targettype pet true
+      endfor
+      settimer 'tamingTimer' 0
+    endif
+  endif
+endif 
+replay
