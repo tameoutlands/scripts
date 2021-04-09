@@ -130,10 +130,7 @@ else
     if timer 'tamingTimer' > 13000
       useskill 'Taming'
       pause 1000
-      foreach pet in pets
-        pause 500
-        targettype pet true
-      endfor
+      target 'last'
       settimer 'tamingTimer' 0
     endif
   endif
