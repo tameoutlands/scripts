@@ -133,36 +133,84 @@ else
 endif
 clearsysmsg
 // Search for appropriate pet to tame
-foreach pet in pets
-  @dclicktype 3922 backpack
-  pause 1000
-  @targettype pet true
-  pause 500
-  if skill 'herding' > 0
-    menu 'last' 11
-  else
-    menu 'last' 10
-  endif
-  pause 1000
-  hotkey 'Cancel current target'
-  if insysmsg 'person'
-      say 'all kill'
+overhead 'Searching'
+if skill 'taming' < 70
+  foreach pet in pets
+    if findtype pet true
+      @dclicktype 3922 backpack
       pause 1000
-      @target 'last'
-      break
-  else
-    if insysmsg 'bladed item'
-      if not timerexists 'tamingTimer'
-        createtimer 'tamingTimer'
-        settimer 'tamingTimer' 0
+      @targettype pet true
+      pause 500
+      if skill 'herding' > 0
+        menu 'last' 11
+      else
+        menu 'last' 10
       endif
-      if timer 'tamingTimer' > 13000
-        useskill 'Taming'
-        pause 750
+      pause 1000
+      hotkey 'Cancel current target'
+      if insysmsg 'person'
+          say 'all kill'
+          pause 2500
+          @target 'last'
+          break
+      else
+        if insysmsg 'bladed item'
+          if not timerexists 'tamingTimer'
+            createtimer 'tamingTimer'
+            settimer 'tamingTimer' 0
+          endif
+          if timer 'tamingTimer' > 13000
+            useskill 'Taming'
+            pause 750
+            @target 'last'
+            settimer 'tamingTimer' 0
+          endif
+        endif    
+      endif
+    else
+      if findtype pet
+        overhead 'Fetching tame sub 70'
+        pause 550
+        say 'all kill'
+        wft 1000
+        @targettype pet
+        pause 2500
+        say 'all follow me'
+      endif
+    endif
+  endfor
+else
+  foreach pet in pets
+    @dclicktype 3922 backpack
+    pause 1000
+    @targettype pet true
+    pause 500
+    if skill 'herding' > 0
+      menu 'last' 11
+    else
+      menu 'last' 10
+    endif
+    pause 1000
+    hotkey 'Cancel current target'
+    if insysmsg 'person'
+        say 'all kill'
+        pause 1000
         @target 'last'
-        settimer 'tamingTimer' 0
-      endif
-    endif    
-  endif
-endfor
+        break
+    else
+      if insysmsg 'bladed item'
+        if not timerexists 'tamingTimer'
+          createtimer 'tamingTimer'
+          settimer 'tamingTimer' 0
+        endif
+        if timer 'tamingTimer' > 13000
+          useskill 'Taming'
+          pause 750
+          @target 'last'
+          settimer 'tamingTimer' 0
+        endif
+      endif    
+    endif
+  endfor
+endif
 replay
