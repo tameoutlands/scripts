@@ -135,18 +135,18 @@ elseif skill 'tailoring' < 90
     pause 1000
     gumpresponse 101 //Leather section
     pause 1000
-    gumpresponse 209 //female chest
+    gumpresponse 207 //chest
     pause 1000
     menu 'shelf' 0
     pause 500
     target 'backpack'
     pause 1500
-    if findtype 7175 true
+    if findtype 5075 true
         dclicktype 3997 backpack
         pause 1000
         gumpresponse 3
         pause 1000
-        targettype 7175 backpack
+        targettype 5075 backpack
         pause 1000
         script 'tailoring'
     else
