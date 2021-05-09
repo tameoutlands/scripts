@@ -9,7 +9,7 @@ Things you require for this to work
 
 1) A dagger
 2) Bandages
-3) A pet that you can use as a tank, the script advices to use Rock Guar until 72.5, Scarab until 105 then a Sand Roach to finish, but you are welcome to use what ever you want.
+3) A pet that you can use as a tank, the script advises to use Rock Guar until 72.5, Scarab until 105 then a Sand Roach to finish, but you are welcome to use what ever you want.
 4) You need to set a script variable in `scripts > options` called `tank` and select your tanking pet, this will need to be manually changed when you change tanks at the different levels.
 
 Things this script performs actions that you might be confused by; some of which are explained below.
