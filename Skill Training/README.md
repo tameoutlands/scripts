@@ -1,5 +1,6 @@
 #### Skills
 * [Animal Taming](#animal-taming)
+* [Tailoring (Shelf)](#tailoring-(shelf))
 
 ##### Animal Taming
 General information: This script is designed to be 100% afk, from 50-120.  For more information about what to tame, please see https://www.tameoutlands.com/.
@@ -20,3 +21,5 @@ Things this script performs actions that you might be confused by; some of which
   - Killing your tamed pets yields no experience towards codexes, mastery chains or aspect.
   - Killing your tamed pets yields no opportunity gain a passive gain, which would be VERY bad if we did.
 4) This script has some baked in pets to tame at all the taming break points, you are free to add additional pets in at each section but i would recommend commenting out `\\` unused pets that you wont be taming, this will help to speed up the taming process.
+
+##### Tailoring (Shelf)
