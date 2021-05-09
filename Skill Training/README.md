@@ -1,6 +1,6 @@
 #### Skills
 * [Animal Taming](#animal-taming)
-* [Tailoring](#tailoring-shelf)
+* [Tailoring](#tailoring)
 
 ##### Animal Taming
 General information: This script is designed to be 100% afk, from 50-120.  For more information about what to tame, please see https://www.tameoutlands.com/.
