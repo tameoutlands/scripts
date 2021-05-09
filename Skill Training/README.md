@@ -14,7 +14,7 @@ Things you require for this to work
 Things this script performs actions that you might be confused by; some of which are explained below.
 
 1) This will attempt to use a dagger on animals, this is by design so do not remove any parts of this.
-2) This script will try to transfer pets, but this is purely to establish a successful tame, at at no point does this actually target any mobile to transfer to, this cancel the target cursor directly after.
+2) This script will try to transfer pets, but this is purely to establish a successful tame, and at no point does this actually target any mobile to transfer to, this cancels the target cursor directly after.
 3) This scipt does not release your tames to kill them, importantly it does this for the following reasons.
   - Killing your tamed pets is much faster due to their reduced hp.
   - Killing your tamed pets yields no experience towards codexes, mastery chains or aspect.
