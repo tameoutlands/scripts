@@ -30,7 +30,7 @@ This you require for this to work
 1) YES, this has two references to the word leather :).
 2) A shelf, create a script variable in `scripts > options` called `shelf` and target your shelf before pressing play.
 3) You shelf loadout should be just a sewing kit, or 10, what ever floats your boat.
-4) A container near your shelf with regular leather in, you need to create a script variable in `script > options` called `leather` and target this container.
+4) A container near your shelf with regular leather in, you need to create a script variable in `scripts > options` called `leather` and target this container.
 5) You must create a counter in Razor called `leather`, this can be done by going to `Display/Counters` and adding a leather counter.
 6) You must also create a restock agent, preferably `restock-1` that has your `backpack` set as its hotbag and `leather` added to the agent.
 
