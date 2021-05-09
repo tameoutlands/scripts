@@ -23,3 +23,23 @@ Things this script performs actions that you might be confused by; some of which
 4) This script has some baked in pets to tame at all the taming break points, you are free to add additional pets in at each section but i would recommend commenting out `\\` unused pets that you wont be taming, this will help to speed up the taming process.
 
 ##### Tailoring
+General information: This script is designed to grab leather from a store, restock sewing kits from your shelf, and stock your shelf up with any items deemed worthy of being shelved, like armour suits, ship boarding ropes.  It will automatically recycle any normal quality items including the tailor repair kits
+
+This you require for this to work
+
+1) A shelf, create a script variable in `scripts > options` called `shelf` and target your shelf before pressing play.
+2) You shelf loadout should be just a sewing kit, or 10, what ever floats your boat.
+3) A container near your shelf with regular leather in, you need to create a script variable in `script > options` called `leather` and target this container.
+4) You must create a counter in Razor called `leather`, this can be done by going to `Display/Counters` and adding a leather counter.
+5) You must also create a restock agent, preferably `restock-1` that has your `backpack` set as its hotbag and `leather` added to the agent.
+
+This creates the following, although you can change it if you wish.
+  - 50-65   : Leather Gorget
+  - 65-70   : Leather Gloves
+  - 70-75   : Leather Cap
+  - 75-80   : Leather Arms
+  - 80-85   : Leather Legs
+  - 85-90   : Leather Chest
+  - 90-95   : Boarding Rope
+  - 95-100  : Studded Arms
+  - 100-120 : Tailor Repair Kit
