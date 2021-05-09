@@ -2,7 +2,7 @@
 * [Animal Taming](#animal-taming)
 * [Tailoring](#tailoring)
 
-##### Animal Taming
+#### Animal Taming
 General information: This script is designed to be 100% afk, from 50-120.  For more information about what to tame, please see https://www.tameoutlands.com/.
 
 Things you require for this to work
@@ -22,7 +22,7 @@ Things this script performs actions that you might be confused by; some of which
   - Killing your tamed pets yields no opportunity gain a passive gain, which would be VERY bad if we did.
 4) This script has some baked in pets to tame at all the taming break points, you are free to add additional pets in at each section but i would recommend commenting out `\\` unused pets that you wont be taming, this will help to speed up the taming process.
 
-##### Tailoring
+#### Tailoring
 General information: This script is designed to grab leather from a store, restock sewing kits from your shelf, and stock your shelf up with any items deemed worthy of being shelved, like armour suits, ship boarding ropes.  It will automatically recycle any normal quality items including the tailor repair kits
 
 This you require for this to work
