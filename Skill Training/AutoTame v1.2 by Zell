@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////
-// TamingDragons v1.1
+// TamingDragons v1.2
 // Written by: Zell
 //
 // IMPORTANT
@@ -8,14 +8,12 @@
 // You require a tank for this
 // Create a script variable called tank
 // Make sure that tank is on follow, not guard
-// Make sure you are not wearing aspect gear
-// Make sure you are not wearing a chain
 //
 // 50-72.5 use rock guar as tank
 // 75-102.5 use scarab as tank
 // 105-120 use sand roach as tank
 //
-// The important thing here to not to use
+// The important thing here is to not use
 // a scarab as a tank when taming scarabs
 //
 ///////////////////////////////////////////////////////
