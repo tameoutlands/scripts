@@ -31,7 +31,7 @@ if not timerexists 'bandageTimer'
 endif
 // Bandage my tank every 10 seconds, change as required
 if timer 'bandageTimer' > 10000
-  @dclicktype 3617 backpack
+  @dclicktype 'bandages' backpack
   pause 500
   target 'tank'
   pause 1000
