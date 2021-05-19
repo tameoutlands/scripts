@@ -1,37 +1,20 @@
-///////////////////////////////////////////////////////
-// TamingDragons v1.2
-// Written by: Zell
-//
-// IMPORTANT
-// This requires you to have a dagger in your backpack
-//
-// You require a tank for this
-// Create a script variable called tank
-// Make sure that tank is on follow, not guard
-//
-// 50-72.5 use rock guar as tank
-// 75-102.5 use scarab as tank
-// 105-120 use sand roach as tank
-//
-// The important thing here is to not use
-// a scarab as a tank when taming scarabs
-//
-///////////////////////////////////////////////////////
-//
-// This is enforces selection of tank on client launch
+// This enforces selection of tank on client launch incase the var
+// wasn't updated in razor options
 if not listexists 'tankcount'
   createlist 'tankcount'
   overhead 'Please select your tanking pet'
   setvar 'tank'
 endif
+
 // Bandage timer creation
 if not timerexists 'bandageTimer'
   createtimer 'bandageTimer'
   settimer 'bandageTimer' 0
 endif
+
 // Bandage my tank every 10 seconds, change as required
-if timer 'bandageTimer' > 10000
-  @dclicktype 'bandages' backpack
+if timer 'bandageTimer' > 8000
+  @dclicktype 'bandage' backpack
   pause 500
   target 'tank'
   pause 1000
@@ -41,174 +24,179 @@ if timer 'bandageTimer' > 10000
     settimer 'bandageTimer' 0
   endif
 endif
+
 // In case for some reason bandage doesnt get used on tank
 // cancels target so bandage doesnt target grey untamed
 hotkey 'Cancel current target'
+
 // Apply pets to tame at specific levels, feel free to add
 // them, see user doc for how
-if skill 'Taming' < 60 // At 50 taming
-  removelist 'pets'
-  createlist 'pets'
-  // Frog
-  pushlist 'pets' '80'
-elseif skill 'Taming' < 70 // At 60 taming
-  removelist 'pets'
-  createlist 'pets'
-  //Cave Bear
-  pushlist 'pets' '213'
-elseif skill 'Taming' < 75 // At 70 taming
-  removelist 'pets'
-  createlist 'pets'
-  //Scarab
-  pushlist 'pets' '169'
+if skill 'Taming' < 60
+  removelist 'tameables'
+  createlist 'tameables'
+  pushlist 'tameables' 'a colossal frog'
+elseif skill 'Taming' < 70
+  removelist 'tameables'
+  createlist 'tameables'
+  pushlist 'tameables' 'a cave bear'
+elseif skill 'Taming' < 75
+  removelist 'tameables'
+  createlist 'tameables'
+  pushlist 'tameables' 'a scarab'
 elseif skill 'Taming' < 80 // At 75 taming
-  removelist 'pets'
-  createlist 'pets'
+  removelist 'tameables'
+  createlist 'tameables'
   // Drake Whelp
-  pushlist 'pets' '718'
+  pushlist 'tameables' '718'
   // or Aegis Slime
-  pushlist 'pets' '51'
+  pushlist 'tameables' '51'
 elseif skill 'Taming' < 85 // At 80 taming
-  removelist 'pets'
-  createlist 'pets'
+  removelist 'tameables'
+  createlist 'tameables'
   // Deep Crawler
-  pushlist 'pets' '315'
+  pushlist 'tameables' '315'
 elseif skill 'Taming' < 90 // At 85 taming
-  removelist 'pets'
-  createlist 'pets'
+  removelist 'tameables'
+  createlist 'tameables'
   // Drake red body
-  pushlist 'pets' '61'
+  pushlist 'tameables' '61'
   // Drake grey body
-  pushlist 'pets' '60'
+  pushlist 'tameables' '60'
 elseif skill 'Taming' < 95 // At 90 taming
-  removelist 'pets'
-  createlist 'pets'
+  removelist 'tameables'
+  createlist 'tameables'
   // Husk Crab
-  pushlist 'pets' '729'
+  pushlist 'tameables' '729'
 elseif skill 'Taming' < 100 // At 95 taming
-  removelist 'pets'
-  createlist 'pets'
+  removelist 'tameables'
+  createlist 'tameables'
   // or Dragon grey body
-  pushlist 'pets' '12'
+  pushlist 'tameables' '12'
   // or Dragon red body
-  pushlist 'pets' '59'
+  pushlist 'tameables' '59'
   // Dragon whelp
   //pushlist 'pets' '718'
 elseif skill 'Taming' < 105 // At 100 taming
-  removelist 'pets'
-  createlist 'pets'
+  removelist 'tameables'
+  createlist 'tameables'
   // Snow Drift
-  pushlist 'pets' '51'
+  pushlist 'tameables' '51'
 elseif skill 'Taming' < 110 // At 105 taming, Earth Drake
-  removelist 'pets'
-  createlist 'pets'
+  removelist 'tameables'
+  createlist 'tameables'
   // Drake grey body
-  pushlist 'pets' '60'
+  pushlist 'tameables' '60'
   // Drake red body
-  pushlist 'pets' '61'
+  pushlist 'tameables' '61'
   // Acarid
   //pushlist 'pets' '385'
 elseif skill 'Taming' < 115 // At 110 taming
-  removelist 'pets'
-  createlist 'pets'
+  removelist 'tameables'
+  createlist 'tameables'
   // Aegis Minion
-  pushlist 'pets' '776'
+  pushlist 'tameables' '776'
   // or Sphinx
-  pushlist 'pets' '293'
+  pushlist 'tameables' '293'
 elseif skill 'Taming' < 120 // At 115 taming, Earth Dragon
-  removelist 'pets'
-  createlist 'pets'
+  removelist 'tameables'
+  createlist 'tameables'
   // Grey Dragon body value
-  pushlist 'pets' '12'
+  pushlist 'tameables' '12'
   // Red Dragon body value
-  pushlist 'pets' '59'
+  pushlist 'tameables' '59'
   // or Colossal Sandroach
-  pushlist 'pets' '388'
+  pushlist 'tameables' '388'
 else
-  overhead 'STOP! You have finished your journey'
+  overhead 'STOP! You have finished your journey' "14"
   pause 1000
   replay
 endif
 clearsysmsg
-// Search for appropriate pet to tame
-overhead 'Searching'
-if skill 'taming' < 70
-  foreach pet in pets
-    if findtype pet true
-      @dclicktype 3922 backpack
-      pause 1000
-      @targettype pet true
-      pause 500
-      if skill 'herding' > 0
-        menu 'last' 11
-      else
-        menu 'last' 10
-      endif
-      pause 1000
-      hotkey 'Cancel current target'
-      if insysmsg 'person'
-          say 'all kill'
-          pause 2500
-          @target 'last'
-          break
-      else
-        if insysmsg 'bladed item'
-          if not timerexists 'tamingTimer'
-            createtimer 'tamingTimer'
-            settimer 'tamingTimer' 0
-          endif
-          if timer 'tamingTimer' > 13000
-            useskill 'Taming'
-            pause 750
-            @target 'last'
-            settimer 'tamingTimer' 0
-          endif
-        endif    
-      endif
-    else
-      if findtype pet
-        overhead 'Fetching tame sub 70'
-        pause 550
-        say 'all kill'
-        wft 1000
-        @targettype pet
-        pause 2500
-        say 'all follow me'
-      endif
-    endif
-  endfor
-else
-  foreach pet in pets
-    @dclicktype 3922 backpack
-    pause 1000
-    @targettype pet true
-    pause 500
+
+foreach tameable in tameables
+  if findtype tameable true
+    overhead "Tameable in range..." "232"
+    hotkey "Set Last Target"
+    wft
+    targettype tameable true
+
+    // open left click menu on last target and try to click 
+    // "transfer" to figure out if pet is tamed or not. Pet 
+    // context items will differ if you have herding or not
     if skill 'herding' > 0
       menu 'last' 11
     else
       menu 'last' 10
     endif
+
     pause 1000
     hotkey 'Cancel current target'
-    if insysmsg 'person'
-        say 'all kill'
-        pause 1000
-        @target 'last'
-        break
+
+    // last target is tamed... kill it.
+    if insysmsg 'person to transfer ownership to'
+      overhead "Killing tamed pet..." "232"
+      //melee it to help kill faster
+      attack "last"
+
+      // use pet context menu to attack nearest tameable
+      if skill 'herding' > 0
+        menu 'tank' 2
+      else
+        menu 'tank' 1
+      endif
+      wft
+      // pause 2500
+      target "last"
+      break
     else
-      if insysmsg 'bladed item'
-        if not timerexists 'tamingTimer'
-          createtimer 'tamingTimer'
-          settimer 'tamingTimer' 0
-        endif
-        if timer 'tamingTimer' > 13000
-          useskill 'Taming'
-          pause 750
-          @target 'last'
-          settimer 'tamingTimer' 0
-        endif
-      endif    
+      overhead 'Attempting to tame...' "232"
+      if not timerexists 'tamingTimer'
+        createtimer 'tamingTimer'
+        settimer 'tamingTimer' 0
+      endif
+
+      if timer 'tamingTimer' > 13000
+        useskill 'Taming'
+        pause 750
+        @target 'last'
+        settimer 'tamingTimer' 0
+      endif
+
     endif
-  endfor
-endif
-replay
+
+  elseif findtype tameable
+      overhead "No tameable in range, fetching nearest tameable" "232"
+      pause 550
+
+      overhead "setting last target"
+      hotkey "Set Last Target"
+      wft
+      targettype tameable
+      
+      // use pet context menu to attack nearest tameable
+      if skill 'herding' > 0
+        menu 'tank' 2
+      else
+        menu 'tank' 1
+      endif
+
+      wft 1000
+      lasttarget
+      //wait for pet to get to target
+      pause 3000
+      // use pet context menu to bring pet back with tameable
+      if skill 'herding' > 0
+        menu 'tank' 6
+      else
+        menu 'tank' 5
+      endif
+
+      //toggle war/peace so we don't autoswing at it and interupt taming
+      hotkey 'Toggle War/Peace'
+      hotkey 'Toggle War/Peace'
+
+      //wait for pet to get back to us so we don't pull a second
+      pause 3000
+  endif
+endfor
+loop
