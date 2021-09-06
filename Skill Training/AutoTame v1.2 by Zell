@@ -51,41 +51,41 @@ if skill 'Taming' < 60 // At 50 taming
   createlist 'pets'
   // Frog
   pushlist 'pets' '80'
-elseif skill 'Taming' < 70 // At 60 taming
+elseif skill 'Taming' < 70
   removelist 'pets'
   createlist 'pets'
   //Cave Bear
   pushlist 'pets' '213'
-elseif skill 'Taming' < 75 // At 70 taming
+elseif skill 'Taming' < 75
   removelist 'pets'
   createlist 'pets'
   //Scarab
   pushlist 'pets' '169'
-elseif skill 'Taming' < 80 // At 75 taming
+elseif skill 'Taming' < 80
   removelist 'pets'
   createlist 'pets'
   // Drake Whelp
   pushlist 'pets' '718'
   // or Aegis Slime
   pushlist 'pets' '51'
-elseif skill 'Taming' < 85 // At 80 taming
+elseif skill 'Taming' < 85
   removelist 'pets'
   createlist 'pets'
   // Deep Crawler
   pushlist 'pets' '315'
-elseif skill 'Taming' < 90 // At 85 taming
+elseif skill 'Taming' < 90
   removelist 'pets'
   createlist 'pets'
   // Drake red body
   pushlist 'pets' '61'
   // Drake grey body
   pushlist 'pets' '60'
-elseif skill 'Taming' < 95 // At 90 taming
+elseif skill 'Taming' < 95
   removelist 'pets'
   createlist 'pets'
   // Husk Crab
   pushlist 'pets' '729'
-elseif skill 'Taming' < 100 // At 95 taming
+elseif skill 'Taming' < 100
   removelist 'pets'
   createlist 'pets'
   // or Dragon grey body
@@ -94,12 +94,12 @@ elseif skill 'Taming' < 100 // At 95 taming
   pushlist 'pets' '59'
   // Dragon whelp
   //pushlist 'pets' '718'
-elseif skill 'Taming' < 105 // At 100 taming
+elseif skill 'Taming' < 105
   removelist 'pets'
   createlist 'pets'
   // Snow Drift
   pushlist 'pets' '51'
-elseif skill 'Taming' < 110 // At 105 taming, Earth Drake
+elseif skill 'Taming' < 110
   removelist 'pets'
   createlist 'pets'
   // Drake grey body
@@ -108,14 +108,14 @@ elseif skill 'Taming' < 110 // At 105 taming, Earth Drake
   pushlist 'pets' '61'
   // Acarid
   //pushlist 'pets' '385'
-elseif skill 'Taming' < 115 // At 110 taming
+elseif skill 'Taming' < 115
   removelist 'pets'
   createlist 'pets'
   // Aegis Minion
   pushlist 'pets' '776'
   // or Sphinx
   pushlist 'pets' '293'
-elseif skill 'Taming' < 120 // At 115 taming, Earth Dragon
+elseif skill 'Taming' < 120
   removelist 'pets'
   createlist 'pets'
   // Grey Dragon body value
