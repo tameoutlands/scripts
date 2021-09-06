@@ -46,7 +46,7 @@ endif
 hotkey 'Cancel current target'
 // Apply pets to tame at specific levels, feel free to add
 // them, see user doc for how
-if skill 'Taming' < 60 // At 50 taming
+if skill 'Taming' < 60
   removelist 'pets'
   createlist 'pets'
   // Frog
@@ -134,10 +134,10 @@ clearsysmsg
 overhead 'Searching'
 if skill 'taming' < 70
   foreach pet in pets
-    if findtype pet true
+    if findtype pet any any any 2
       @dclicktype 3922 backpack
       pause 1000
-      @targettype pet true
+      @targettype pet any any any 2
       pause 500
       if skill 'herding' > 0
         menu 'last' 11
@@ -181,7 +181,7 @@ else
   foreach pet in pets
     @dclicktype 3922 backpack
     pause 1000
-    @targettype pet true
+    @targettype pet any any any 2
     pause 500
     if skill 'herding' > 0
       menu 'last' 11
