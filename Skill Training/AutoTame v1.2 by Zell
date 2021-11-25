@@ -155,7 +155,7 @@ if skill 'taming' < 70
         if insysmsg 'bladed item'
           if not timerexists 'tamingTimer'
             createtimer 'tamingTimer'
-            settimer 'tamingTimer' 0
+            settimer 'tamingTimer' 13000
           endif
           if timer 'tamingTimer' > 13000
             useskill 'Taming'
@@ -199,7 +199,7 @@ else
       if insysmsg 'bladed item'
         if not timerexists 'tamingTimer'
           createtimer 'tamingTimer'
-          settimer 'tamingTimer' 0
+          settimer 'tamingTimer' 13000
         endif
         if timer 'tamingTimer' > 13000
           useskill 'Taming'
