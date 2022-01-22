@@ -18,6 +18,14 @@
 //
 ///////////////////////////////////////////////////////
 //
+// A fork for bards who peacekeepin
+
+
+// Create timer for peacekeeping
+if not timerexists 'calmTimer'
+  createtimer 'calmTimer'
+  settimer 'calmTimer' 0
+endif
 // This is enforces selection of tank on client launch
 if not listexists 'tankcount'
   createlist 'tankcount'
@@ -189,8 +197,19 @@ else
       menu 'last' 10
     endif
     pause 1000
+    //Pacify last target, if successful reset timer to 0 and wait 7 seconds to allow Tame to work. Else, keep trying.
+    if timer 'calmTimer' > 15000
+      skill 'peacemaking'
+      pause 500
+      @targettype pet true
+      pause 5000
+    endif
+    if insysmsg 'you play'
+      settimer 'calmTimer' 0
+    endif
     hotkey 'Cancel current target'
-    if insysmsg 'person'
+    //originally it was "person" but when mob is pacified "entranced" is more likely to occur
+    if insysmsg 'entranced'
         say 'all kill'
         pause 1000
         @target 'last'
